@@ -1,6 +1,6 @@
-<svg width="100%" viewBox="0 0 680 460" role="img" xmlns="http://www.w3.org/2000/svg" style="">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Cloudflare to Sentinel data flow</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A whiteboard-style cartoon diagram showing logs flowing from Cloudflare GraphQL API through CCF RestApiPoller and a DCR KQL transform into the cloudflarefirewall_CL table in Log Analytics.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" role="img">
+<title>Cloudflare to Sentinel data flow</title>
+<desc>A horizontal whiteboard cartoon on a black background with a rounded border, showing logs flowing from Cloudflare GraphQL API through CCF RestApiPoller and a DCR KQL transform into the cloudflarefirewall_CL Log Analytics table.</desc>
 <defs>
 <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 <path d="M2 1 L8 5 L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -13,94 +13,86 @@
 <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="7"/>
 <feDisplacementMap in="SourceGraphic" scale="1.4"/>
 </filter>
-<mask id="imagine-text-gaps-3gkgry" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="460" fill="white"/><rect x="198.13671875" y="22" width="283.7265625" height="24" fill="black" rx="2"/><rect x="75.53125" y="119.25" width="78.9375" height="21.5" fill="black" rx="2"/><rect x="67.48828125" y="137.25" width="95.0234375" height="21.5" fill="black" rx="2"/><rect x="78.67578125" y="162.5" width="72.6484375" height="19" fill="black" rx="2"/><rect x="190.1726837158203" y="118" width="59.52262878417969" height="19" fill="black" rx="2"/><rect x="316.1875" y="117.25" width="37.625" height="21.5" fill="black" rx="2"/><rect x="285.75" y="135.25" width="98.5" height="21.5" fill="black" rx="2"/><rect x="295.16796875" y="162.5" width="79.6640625" height="19" fill="black" rx="2"/><rect x="423.171875" y="118" width="63.65625" height="19" fill="black" rx="2"/><rect x="545.61328125" y="117.25" width="38.7734375" height="21.5" fill="black" rx="2"/><rect x="506.421875" y="135.25" width="117.15625" height="21.5" fill="black" rx="2"/><rect x="522.53515625" y="162.5" width="84.9296875" height="19" fill="black" rx="2"/><rect x="436.5" y="248" width="107" height="19" fill="black" rx="2"/><rect x="113.81640625" y="302.5" width="172.3671875" height="19" fill="black" rx="2"/><rect x="125.7890625" y="325.5" width="148.421875" height="19" fill="black" rx="2"/><rect x="252.0703125" y="396" width="175.859375" height="19" fill="black" rx="2"/></mask></defs>
+</defs>
 
-<!-- Title -->
-<text x="340" y="40" text-anchor="middle" style="font-size:16px;fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Cloudflare logs → Microsoft Sentinel</text>
-<path d="M210 50 Q340 56 470 50" stroke="var(--t)" stroke-width="1" fill="none" opacity="0.4" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="6" y="6" width="708" height="488" rx="20" fill="#0d0d0f"/>
+<rect x="6" y="6" width="708" height="488" rx="20" fill="none" stroke="#3a3a3f" stroke-width="2"/>
+<rect x="14" y="14" width="692" height="472" rx="16" fill="none" stroke="#1f1f23" stroke-width="1"/>
 
-<!-- BOX 1: Cloudflare GraphQL API -->
-<g filter="url(#rough)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="40" y="100" width="150" height="90" rx="10" stroke-width="1.4" style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</g>
-<text x="115" y="130" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Cloudflare</text>
-<text x="115" y="148" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">GraphQL API</text>
-<text x="115" y="172" text-anchor="middle" dominant-baseline="central" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">(your zone)</text>
-
-<!-- Little cloud doodle above box 1 -->
-<g filter="url(#rough2)" opacity="0.55" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.55;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<path d="M70 80 q-4 -8 6 -10 q2 -8 12 -6 q4 -8 14 -4 q6 -6 14 0 q10 -2 10 8 q8 0 6 8 z" fill="none" stroke="var(--t)" stroke-width="1.2" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="360" y="58" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="17" fill="#f0f0ec">Cloudflare logs &#8594; Microsoft Sentinel</text>
+<g filter="url(#rough2)" opacity="0.5">
+<path d="M225 70 Q360 76 495 70" stroke="#888" stroke-width="1" fill="none"/>
 </g>
 
-<!-- Arrow 1 -->
-<path d="M195 145 Q220 145 245 145" stroke="var(--t)" stroke-width="1.4" fill="none" marker-end="url(#arrow)" filter="url(#rough2)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="220" y="132" text-anchor="middle" style="font-style:italic;fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">pulls logs</text>
-
-<!-- BOX 2: CCF RestApiPoller -->
-<g filter="url(#rough)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="250" y="100" width="170" height="90" rx="10" stroke-width="1.4" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<g filter="url(#rough)">
+<rect x="50" y="135" width="160" height="100" rx="10" fill="#412402" stroke="#EF9F27" stroke-width="1.6"/>
 </g>
-<text x="335" y="128" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">CCF</text>
-<text x="335" y="146" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">RestApiPoller</text>
-<text x="335" y="172" text-anchor="middle" dominant-baseline="central" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">(every 1 min)</text>
+<g filter="url(#rough2)" opacity="0.85" stroke="#FAC775" stroke-width="1.4" fill="none" stroke-linecap="round">
+<path d="M85 113 q-4 -8 6 -10 q2 -8 12 -6 q4 -8 14 -4 q6 -6 14 0 q10 -2 10 8 q8 0 6 8 z"/>
+</g>
+<text x="130" y="170" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#FAC775">Cloudflare</text>
+<text x="130" y="190" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#FAC775">GraphQL API</text>
+<text x="130" y="215" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#FAEEDA">(your zone)</text>
 
-<!-- Little clock doodle above box 2 -->
-<g filter="url(#rough2)" opacity="0.7" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<circle cx="335" cy="78" r="11" fill="none" stroke="var(--t)" stroke-width="1.2" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M335 78 L335 70 M335 78 L341 80" stroke="var(--t)" stroke-width="1.2" stroke-linecap="round" fill="none" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<g filter="url(#rough2)">
+<path d="M215 185 Q235 185 258 185" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round"/>
+</g>
+<text x="237" y="172" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic" font-size="12" fill="#aaa">pulls logs</text>
+
+<g filter="url(#rough)">
+<rect x="265" y="135" width="180" height="100" rx="10" fill="#085041" stroke="#1D9E75" stroke-width="1.6"/>
+</g>
+<g filter="url(#rough2)" opacity="0.9" stroke="#9FE1CB" stroke-width="1.3" fill="none" stroke-linecap="round">
+<circle cx="355" cy="113" r="11"/>
+<path d="M355 113 L355 105 M355 113 L361 115"/>
+</g>
+<text x="355" y="170" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#9FE1CB">CCF</text>
+<text x="355" y="190" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#9FE1CB">RestApiPoller</text>
+<text x="355" y="215" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#E1F5EE">(every 1 min)</text>
+
+<g filter="url(#rough2)">
+<path d="M450 185 Q475 185 498 185" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round"/>
+</g>
+<text x="475" y="172" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic" font-size="12" fill="#aaa">raw JSON</text>
+
+<g filter="url(#rough)">
+<rect x="505" y="135" width="160" height="100" rx="10" fill="#26215C" stroke="#7F77DD" stroke-width="1.6"/>
+</g>
+<g filter="url(#rough2)" opacity="0.85" stroke="#CECBF6" stroke-width="1.3" fill="none" stroke-linecap="round">
+<circle cx="585" cy="113" r="9"/>
+<circle cx="585" cy="113" r="3"/>
+<path d="M585 102 L585 98 M585 124 L585 128 M574 113 L570 113 M596 113 L600 113"/>
+</g>
+<text x="585" y="170" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#CECBF6">DCR</text>
+<text x="585" y="190" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="14" fill="#CECBF6">(KQL transform)</text>
+<text x="585" y="215" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#EEEDFE">field mapping</text>
+
+<g filter="url(#rough2)">
+<path d="M585 240 Q585 295 470 325 Q400 342 340 342" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round"/>
+</g>
+<text x="495" y="312" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic" font-size="12" fill="#aaa">transformed rows</text>
+
+<g>
+<ellipse cx="200" cy="345" rx="115" ry="14" fill="#042C53" stroke="#378ADD" stroke-width="1.4"/>
+<path d="M85 345 L85 410 Q85 424 200 424 Q315 424 315 410 L315 345" fill="#042C53" stroke="#378ADD" stroke-width="1.4"/>
+<path d="M85 410 Q85 424 200 424 Q315 424 315 410" fill="none" stroke="#378ADD" stroke-width="1" opacity="0.5"/>
+<path d="M85 365 Q85 379 200 379 Q315 379 315 365" fill="none" stroke="#378ADD" stroke-width="0.9" opacity="0.4"/>
+<path d="M85 388 Q85 402 200 402 Q315 402 315 388" fill="none" stroke="#378ADD" stroke-width="0.9" opacity="0.3"/>
+</g>
+<text x="200" y="362" text-anchor="middle" dominant-baseline="central" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#B5D4F4">cloudflarefirewall_CL</text>
+<text x="200" y="395" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#B5D4F4">Log Analytics workspace</text>
+<text x="200" y="415" text-anchor="middle" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic" font-size="11" fill="#85B7EB" opacity="0.8">ready to query in Sentinel &#10003;</text>
+
+<g opacity="0.6" stroke="#888" stroke-width="1.1" stroke-linecap="round" fill="none">
+<path d="M55 380 L51 376 M55 380 L51 384 M55 380 L59 376 M55 380 L59 384"/>
+<path d="M340 360 L336 356 M340 360 L336 364 M340 360 L344 356 M340 360 L344 364"/>
+<path d="M40 425 L36 421 M40 425 L36 429 M40 425 L44 421 M40 425 L44 429"/>
 </g>
 
-<!-- Arrow 2 -->
-<path d="M425 145 Q455 145 485 145" stroke="var(--t)" stroke-width="1.4" fill="none" marker-end="url(#arrow)" filter="url(#rough2)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="455" y="132" text-anchor="middle" style="font-style:italic;fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">raw JSON</text>
-
-<!-- BOX 3: DCR (KQL transform) -->
-<g filter="url(#rough)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="490" y="100" width="150" height="90" rx="10" stroke-width="1.4" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<g filter="url(#rough2)" opacity="0.7">
+<path d="M340 360 Q400 350 440 348" stroke="#aaa" stroke-width="1" fill="none" stroke-linecap="round"/>
+<path d="M438 344 L443 348 L438 352" stroke="#aaa" stroke-width="1" fill="none" stroke-linecap="round"/>
 </g>
-<text x="565" y="128" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">DCR</text>
-<text x="565" y="146" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">(KQL transform)</text>
-<text x="565" y="172" text-anchor="middle" dominant-baseline="central" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">field mapping</text>
-
-<!-- Little gear doodle above box 3 -->
-<g filter="url(#rough2)" opacity="0.7" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<circle cx="565" cy="78" r="9" fill="none" stroke="var(--t)" stroke-width="1.2" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="565" cy="78" r="3" fill="none" stroke="var(--t)" stroke-width="1.2" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M565 67 L565 63 M565 89 L565 93 M554 78 L550 78 M576 78 L580 78" stroke="var(--t)" stroke-width="1.2" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</g>
-
-<!-- Curved arrow down from box 3 -->
-<path d="M565 195 Q565 240 460 270 Q400 285 340 285" stroke="var(--t)" stroke-width="1.4" fill="none" marker-end="url(#arrow)" filter="url(#rough2)" stroke-linecap="round" mask="url(#imagine-text-gaps-3gkgry)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="490" y="262" text-anchor="middle" style="font-style:italic;fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">transformed rows</text>
-
-<!-- BOX 4: cloudflarefirewall_CL (cylinder for table) -->
-<g filter="url(#rough)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<ellipse cx="200" cy="290" rx="115" ry="14" stroke-width="1.4" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M85 290 L85 350 Q85 364 200 364 Q315 364 315 350 L315 290" fill="var(--color-background-primary)" stroke-width="1.4" style="fill:rgb(48, 48, 46);stroke:none;color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="85" y="290" width="230" height="60" stroke-width="0" fill-opacity="0.6" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);color:rgb(255, 255, 255);stroke-width:0px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<ellipse cx="200" cy="350" rx="115" ry="14" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.4" style="fill:none;stroke:rgb(255, 255, 255);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</g>
-
-<!-- Re-draw cylinder cleanly over the rough version -->
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<ellipse cx="200" cy="290" rx="110" ry="13" stroke-width="1.2" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M90 290 L90 348 Q90 360 200 360 Q310 360 310 348 L310 290" fill="none" stroke="#185FA5" stroke-width="1.2" style="fill:none;stroke:rgb(24, 95, 165);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M90 348 Q90 360 200 360 Q310 360 310 348" fill="none" stroke="#185FA5" stroke-width="1.2" opacity="0.5" style="fill:none;stroke:rgb(24, 95, 165);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</g>
-<text x="200" y="312" text-anchor="middle" dominant-baseline="central" style="font-family:var(--font-mono); font-size:13px;fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, monospace;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:central">cloudflarefirewall_CL</text>
-<text x="200" y="335" text-anchor="middle" dominant-baseline="central" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Log Analytics workspace</text>
-
-<!-- Sparkle doodles around the table -->
-<g opacity="0.6" stroke="var(--t)" stroke-width="1.1" stroke-linecap="round" fill="none" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<path d="M70 320 L66 316 M70 320 L66 324 M70 320 L74 316 M70 320 L74 324" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M335 305 L331 301 M335 305 L331 309 M335 305 L339 301 M335 305 L339 309" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<path d="M50 365 L46 361 M50 365 L46 369 M50 365 L54 361 M50 365 L54 369" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</g>
-
-<!-- Hand-written note at bottom -->
-<g filter="url(#rough2)" opacity="0.85" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<path d="M380 405 Q400 400 440 405" stroke="var(--t)" stroke-width="1" fill="none" stroke-linecap="round" mask="url(#imagine-text-gaps-3gkgry)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</g>
-<text x="340" y="410" text-anchor="middle" style="font-style:italic; opacity:0.75;fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.75;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">→ ready to query in Sentinel ✓</text>
+<text x="450" y="352" text-anchor="start" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic" font-size="12" fill="#aaa">your data!</text>
 
 </svg>
