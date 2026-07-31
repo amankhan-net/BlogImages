@@ -1,0 +1,74 @@
+<svg viewBox="0 0 820 470" xmlns="http://www.w3.org/2000/svg" font-family="'Kalam', cursive" role="img" aria-label="Project Perception closed loop of red, blue and green agents">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;family=Indie+Flower&amp;display=swap');
+      .ink { fill: #1a1510; }
+      .title { font-family: 'Kalam', cursive; font-weight: 700; fill: #1a1510; }
+      .label { font-family: 'Kalam', cursive; font-weight: 700; fill: #1a1510; }
+      .note  { font-family: 'Indie Flower', cursive; fill: #1a1510; }
+    </style>
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="wobble2" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="19" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1,1 L11,6 L1,11" fill="none" stroke="#1a1510" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- paper -->
+  <rect x="0" y="0" width="820" height="470" fill="#f5f0e4"/>
+
+  <!-- title -->
+  <text x="34" y="52" class="title" font-size="30">Project Perception — the closed loop</text>
+  <path d="M34,64 Q250,58 470,64" fill="none" stroke="#1a1510" stroke-width="2" stroke-linecap="round" filter="url(#wobble2)"/>
+
+  <!-- RED card -->
+  <g filter="url(#wobble)">
+    <rect x="40" y="120" width="210" height="130" rx="10" fill="#f7e4e0" stroke="#1a1510" stroke-width="2.2"/>
+  </g>
+  <circle cx="70" cy="150" r="7" fill="#b23a2e" stroke="#1a1510" stroke-width="1.6"/>
+  <text x="88" y="156" class="label" font-size="22">RED agents</text>
+  <text x="60" y="188" class="note" font-size="18">probe the estate,</text>
+  <text x="60" y="212" class="note" font-size="18">find the paths an</text>
+  <text x="60" y="236" class="note" font-size="18">attacker could take</text>
+
+  <!-- BLUE card -->
+  <g filter="url(#wobble)">
+    <rect x="305" y="120" width="210" height="130" rx="10" fill="#e0e8f4" stroke="#1a1510" stroke-width="2.2"/>
+  </g>
+  <circle cx="335" cy="150" r="7" fill="#2f5aa8" stroke="#1a1510" stroke-width="1.6"/>
+  <text x="353" y="156" class="label" font-size="22">BLUE agents</text>
+  <text x="325" y="188" class="note" font-size="18">investigate, add</text>
+  <text x="325" y="212" class="note" font-size="18">context, decide</text>
+  <text x="325" y="236" class="note" font-size="18">what really matters</text>
+
+  <!-- GREEN card -->
+  <g filter="url(#wobble)">
+    <rect x="570" y="120" width="210" height="130" rx="10" fill="#e2efe0" stroke="#1a1510" stroke-width="2.2"/>
+  </g>
+  <circle cx="600" cy="150" r="7" fill="#3a7d44" stroke="#1a1510" stroke-width="1.6"/>
+  <text x="618" y="156" class="label" font-size="22">GREEN agents</text>
+  <text x="590" y="188" class="note" font-size="18">take corrective</text>
+  <text x="590" y="212" class="note" font-size="18">action and harden</text>
+  <text x="590" y="236" class="note" font-size="18">what was found</text>
+
+  <!-- arrows between cards -->
+  <path d="M252,185 Q278,178 303,185" fill="none" stroke="#1a1510" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#wobble2)"/>
+  <path d="M517,185 Q543,178 568,185" fill="none" stroke="#1a1510" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#wobble2)"/>
+
+  <!-- loop back arrow: green -> red underneath -->
+  <path d="M675,252 C675,340 540,360 410,360 C280,360 175,352 145,300 L145,254"
+        fill="none" stroke="#1a1510" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#wobble2)"/>
+  <text x="330" y="352" class="note" font-size="18">a finding becomes a fix — no hand-off at each step</text>
+
+  <!-- footer note strip -->
+  <g filter="url(#wobble)">
+    <rect x="40" y="398" width="740" height="46" rx="9" fill="#efe8d6" stroke="#1a1510" stroke-width="2"/>
+  </g>
+  <text x="60" y="428" class="note" font-size="19">Built on MAI-Cyber-1  ·  lands in Microsoft Defender  ·  public preview from Aug 3, 2026  ·  you keep control of the consequential calls</text>
+</svg>
